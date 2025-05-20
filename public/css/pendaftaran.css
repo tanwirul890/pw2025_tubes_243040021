@@ -1,0 +1,48 @@
+ .card {
+                border-radius: 1.5rem;
+                box-shadow: 0 4px 16px rgba(25, 118, 210, 0.10);
+                border: none;
+            }
+            .form-label {
+                color: #1976d2;
+                font-weight: 600;
+            }
+            .form-control {
+                border-radius: 1rem;
+                border: 1px solid #43a047;
+                background: #fff;
+            }
+            .btn-gradient {
+                background-color:#1976d2;
+                color: #fff;
+                border-radius: 1.5rem;
+                border: none;
+                font-weight: 600;
+            }
+            .btn-gradient:hover {
+                background: linear-gradient(90deg, #43a047, #1976d2);
+            }
+            .logo-text {
+                color: #1976d2;
+                font-weight: bold;
+            }
+            .logo-text span {
+                color: #43a047;
+            }
+            .card-title {
+                color: #1976d2;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+            .form-section {
+                padding: 1.5rem 1rem;
+            }
+            
+            @media (max-width: 576px) {
+                .card-title {
+                    font-size: 1.3rem;
+                }
+                .form-section {
+                    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+                }
+            }
