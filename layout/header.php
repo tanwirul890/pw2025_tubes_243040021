@@ -6,11 +6,12 @@
     <title>HelathyNesia - Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="../css/login.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     
   </head>
   <body>
+   
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light mb-4">
       <div class="container">

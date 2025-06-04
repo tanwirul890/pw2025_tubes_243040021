@@ -1,0 +1,71 @@
+
+    .navbar {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(25, 118, 210, 0.05);
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1976d2;
+    }
+    .logo-text span {
+      color: #43a047;
+    }
+    .card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: none;
+    }
+    .card .header {
+      background: linear-gradient(90deg, #1976d2 60%, #43a047 100%);
+      border-radius: 20px 20px 0 0;
+      padding: 18px 28px;
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.08);
+    }
+    .table-custom th {
+      background: #1976d2;
+      color: #fff;
+      vertical-align: middle;
+    }
+    .table-custom td {
+      vertical-align: middle;
+    }
+    .btn-custom {
+      border-radius: 20px;
+      padding: 6px 18px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn-custom.btn-success {
+      background: #43a047;
+      border: none;
+    }
+    .btn-custom.btn-success:hover {
+      background: #388e3c;
+    }
+    .btn-custom.btn-danger {
+      background: #e53935;
+      border: none;
+    }
+    .btn-custom.btn-danger:hover {
+      background: #b71c1c;
+    }
+    .btn-custom.btn-light {
+      background: #fff;
+      color: #1976d2;
+      border: 1px solid #1976d2;
+    }
+    .btn-custom.btn-light:hover {
+      background: #e3f2fd;
+    }
+    .table-responsive {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    @media (max-width: 576px) {
+      .card .header {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 10px;
+      }
+    }
