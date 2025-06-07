@@ -1,4 +1,8 @@
- 
+.card {
+
+  border-radius: 1rem 1rem 0 0;
+
+}
     .card-summary {
       border: none;
       border-radius: 1rem;
@@ -28,6 +32,11 @@
       top: 0;
       z-index: 2;
     }
+       .container{
+    margin-bottom: 5rem;
+  }
+
+ 
     .table-custom tbody tr:hover {
       background: #f1f8e9;
       transition: background 0.2s;
