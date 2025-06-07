@@ -1,6 +1,6 @@
-<?php include '../config/function.php'; ?>
-
 <?php
+
+include '../config/function.php'; 
 // Ambil data pembelian
 $data_pembelian = select("SELECT * FROM data_pembelian");
 $total_pembelian = count($data_pembelian);
@@ -100,7 +100,7 @@ $total_pembelian = count($data_pembelian);
     <div class="card shadow-lg" data-aos="fade-up" data-aos-delay="400">
       <div class="header text-white d-flex justify-content-between align-items-center">
         <h4 class="mb-0">Data Pembelian</h4>
-        <a href="tambah_pasien.php" class="btn btn-light btn-custom shadow-sm">+ Tambah Pembelian</a>
+        <a href="../../public/php/pembelian.php" class="btn btn-light btn-custom shadow-sm">+ Tambah Pembelian</a>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -127,12 +127,12 @@ $total_pembelian = count($data_pembelian);
                   <td><?= $pembelian['tanggal']; ?></td>
                   <td class="aksi-btns">
                     <!-- Tombol Ubah Data -->
-                    <a href="ubah-pembeli.php?id=<?= $pembelian['id']; ?>"
+                    <a href="ubah/ubah-pembeli.php?id=<?= $pembelian['id']; ?>"
                        class="btn btn-success btn-sm btn-custom" title="Ubah Data">
                       <i class="bi bi-pencil-square"></i>
                     </a>
                     <!-- Tombol Hapus Data -->
-                    <a href="hapus-pembeli.php?id=<?= $pembelian['id']; ?>"
+                    <a href="hapus/hapus-pembeli.php?id=<?= $pembelian['id']; ?>"
                        class="btn btn-danger btn-sm btn-custom"
                        onclick="return confirm('Yakin ingin menghapus data ini?');" title="Hapus Data">
                       <i class="bi bi-trash"></i>

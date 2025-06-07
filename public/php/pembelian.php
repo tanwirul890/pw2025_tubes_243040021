@@ -1,9 +1,10 @@
+<?php 
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/admin/config/function.php';?>
-<?php
+include  '../../admin/config/function.php';
+
 if (isset($_POST['tambah'])) {
   if(create_barang($_POST) > 0) {
-    echo "<script>alert('data barang berhasil di tambahkan.'); ';</script>"; 
+    echo "<script>alert('data barang berhasil di tambahkan.'); window.location.href = 'pembelian.php';</script>"; 
   } else {
     echo "<script>alert('data barang gagal di tambahkan.'); </script>";
   }
