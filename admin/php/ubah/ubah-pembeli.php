@@ -8,17 +8,11 @@ $pembelian = select("SELECT * FROM data_pembelian WHERE id = $id");
 
 $pembelian = $pembelian[0];
 
-if (isset($_POST['ubah'])) {
-  if (ubah_barang($_POST) > 0) {
-    echo "<script>alert('Data pembelian berhasil diubah.');location.href='../data-pembelian.php';</script>";
-  } else {
-    echo "<script>alert('Data pembelian gagal diubah.');</script>";
-  }
-}
+
 ?>
 
 <?php include '../../../layout/header-admin.php'; ?>
-<link rel="stylesheet" href="../../css/ubah-pembeli.css">
+<link rel="stylesheet" href="../../css/ubah.css">
 <!-- Main Content -->
 <main class="col-lg-10 ms-auto px-0">
     <div class="container" data-aos="fade-up">

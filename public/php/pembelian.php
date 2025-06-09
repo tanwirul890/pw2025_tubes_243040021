@@ -11,7 +11,7 @@ if (isset($_POST['tambah'])) {
 }
 ?>
 
-<?php include  '../../layout/header3.php';?>
+<?php include  '../../layout/header-public.php';?>
 <link rel="stylesheet" href="../css/pembelian.css">
 
 <!-- card pembelian -->

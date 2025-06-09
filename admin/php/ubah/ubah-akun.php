@@ -5,21 +5,13 @@ include '../../config/function.php';
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $pendaftar = select("SELECT * FROM data_pendaftaran_akun WHERE id = $id");
 
-
-
 $pendaftar = $pendaftar[0];
 
-if (isset($_POST['ubah'])) {
-  if (ubah_akun($_POST) > 0) {
-    echo "<script>alert('Data akun berhasil diubah.');location.href='../data-pendaftaran-akun.php';</script>";
-  } else {
-    echo "<script>alert('Data akun gagal diubah.');</script>";
-  }
-}
+
 ?>
 
 <?php include '../../../layout/header-admin.php'; ?>
-<link rel="stylesheet" href="../../css/ubah-akun.css">
+<link rel="stylesheet" href="../../css/ubah.css">
 <!-- Main Content -->
 <main class="col-lg-10 ms-auto px-0">
     <div class="container" data-aos="fade-up">
@@ -49,7 +41,7 @@ if (isset($_POST['ubah'])) {
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2">
-                                    <button type="submit" class="btn btn-gradient btn-lg shadow" name="ubah" data-aos="zoom-in" data-aos-delay="500">Simpan</button>
+                                    <button type="submit" class="btn btn-gradient btn-lg shadow" name="edit" data-aos="zoom-in" data-aos-delay="500">Simpan</button>
                                 </div>
                             </div>
                         </form>

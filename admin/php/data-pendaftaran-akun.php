@@ -1,13 +1,8 @@
-<?php include '../config/function.php'; ?>
-
-<?php
-// Ambil data pendaftaran akun
-$data_pendaftaran = select("SELECT * FROM data_pendaftaran_akun");
-$total_pendaftaran = count($data_pendaftaran);
-?>  
-
-<?php include '../../layout/header-admin.php'; ?>
-<link rel="stylesheet" href="../css/data-pendaftaran.css">
+<?php 
+include '../config/function.php'; 
+include '../../layout/header-admin.php';
+?>
+<link rel="stylesheet" href="../css/data.css">
 <style>
   @media (max-width: 998px) {
   .sidebar {
@@ -100,7 +95,7 @@ $total_pendaftaran = count($data_pendaftaran);
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered table-hover table-custom mb-0 align-middle">
+          <table id="example" class="table table-bordered table-hover table-custom mb-0 align-middle">
             <thead>
               <tr>
                 <th>No</th>

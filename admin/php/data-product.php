@@ -1,36 +1,8 @@
 <?php 
-include '../config/function.php';
-
-// Ambil data produk
-$data_produk = select("SELECT * FROM products");
-$total_produk = count($data_produk);
-
-include '../../layout/header-admin.php'; 
+include '../config/function.php'; 
+include '../../layout/header-admin.php';
 ?>
-<link rel="stylesheet" href="../css/data-produck.css">
-<style>
-@media (max-width: 998px) {
-    .sidebar {
-        position: fixed;
-        left: -260px;
-        top: 0;
-        width: 220px;
-        height: 100%;
-        z-index: 1030;
-        transition: left 0.3s;
-    }
-    .sidebar.show {
-        left: 0;
-    }
-    .sidebar-toggler {
-        display: flex;
-    }
-    .logo-text{
-        letter-spacing: 0px;
-        font-size: 10px;
-    }
-}
-</style>
+<link rel="stylesheet" href="../css/data.css">
 
 <!-- Konten Utama -->
 <main class="col-lg-10 ms-lg-auto px-lg-4" style="transition: margin-left 0.3s;">
@@ -105,7 +77,7 @@ include '../../layout/header-admin.php';
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-custom mb-0 align-middle">
+                    <table id="example" class="table table-bordered table-hover table-custom mb-0 align-middle">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -127,6 +99,11 @@ include '../../layout/header-admin.php';
                                     <td><?= $produk['stock']; ?></td>
                                     <td><?= $produk['waktu']; ?></td>
                                     <td class="aksi-btns">
+                                        <!-- detail Data -->
+                                        <a href="detail_product.php?id=<?= $produk['id']; ?>"
+                                            class="btn btn-secondary btn-sm btn-custom" title="Detail Data">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
                                         <!-- Tombol Ubah Data -->
                                         <a href="ubah/ubah-produk.php?id=<?= $produk['id']; ?>"
                                             class="btn btn-success btn-sm btn-custom" title="Ubah Data">

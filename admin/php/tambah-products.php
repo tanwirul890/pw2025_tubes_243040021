@@ -1,21 +1,8 @@
 <?php 
-
-include '../config/function.php';
-
-
-
-
-if (isset($_POST['tambah'])) {
-  if (tambah_produk($_POST) > 0) {
-    echo "<script>alert('Data produk berhasil ditambahkan.');location.href='tambah-products.php';</script>";
-  } else {
-    echo "<script>alert('Data produk gagal ditambahkan.');</script>";
-  }
-}
+include '../config/function.php'; 
+include '../../layout/header-admin.php';
 ?>
-
-<?php include '../../layout/header-admin.php'; ?>
-<link rel="stylesheet" href="../css/ubah-pembeli.css">
+<link rel="stylesheet" href="../css/ubah.css">
 <!-- table tambah produk -->
 <main class="col-lg-10 ms-auto px-0">
     <div class="container" data-aos="fade-up">
@@ -25,7 +12,7 @@ if (isset($_POST['tambah'])) {
                     <div class="card-body p-4">
                         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Produk" class="login-illustration mb-3" data-aos="fade-down">
                         <h3 class="card-title mb-4 text-center" data-aos="fade-right">Formulir Produk</h3>
-                        <form action="" method="POST" autocomplete="off">
+                        <form action="" method="POST" enctype="multipart/form-data">
                             <div class="mb-3" data-aos="fade-left">
                                 <label for="nama_obat" class="form-label">Nama produk</label>
                                 <input type="text" class="form-control" id="nama_obat" name="nama_obat" required placeholder="Masukkan nama obat">
@@ -37,6 +24,14 @@ if (isset($_POST['tambah'])) {
                             <div class="mb-3" data-aos="fade-left" data-aos-delay="200">
                                 <label for="stok" class="form-label">Stok</label>
                                 <input type="number" class="form-control" id="stok" name="stok" required min="0" placeholder="Masukkan jumlah stok">
+                            </div>
+                            <div class="mb-3" data-aos="fade-left" data-aos-delay="300">
+                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required placeholder="Masukkan deskripsi produk"></textarea>
+                            </div>
+                             <div class="mb-3" data-aos="fade-left" data-aos-delay="400">
+                                <label for="foto_produk" class="form-label">Foto Produk</label>
+                                <input type="file" class="form-control" id="foto_produk" name="foto_produk" accept="image/*" required onchange="previewImage(event)">
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2">

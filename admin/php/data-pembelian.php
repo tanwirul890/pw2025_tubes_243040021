@@ -1,37 +1,8 @@
-<?php
-
+<?php 
 include '../config/function.php'; 
-// Ambil data pembelian
-$data_pembelian = select("SELECT * FROM data_pembelian");
-$total_pembelian = count($data_pembelian);
-?>  
-
-<?php include '../../layout/header-admin.php'; ?>
-<link rel="stylesheet" href="../css/data-pembeli.css">
-<style>
-      @media (max-width: 998px) {
-      .sidebar {
-        position: fixed;
-        left: -260px;
-        top: 0;
-        width: 220px;
-        height: 100%;
-        z-index: 1030;
-        transition: left 0.3s;
-      }
-      .sidebar.show {
-        left: 0;
-      }
-      .sidebar-toggler {
-        display: flex;
-      }
-      .logo-text{
-        letter-spacing: 0px;
-        font-size: 10px;
-      }
-    }
-</style>
-
+include '../../layout/header-admin.php';
+?>
+<link rel="stylesheet" href="../css/data.css">
 <!-- Konten Utama -->
 <main class="col-lg-10 ms-lg-auto px-lg-4" style="transition: margin-left 0.3s;">
   <!-- Ringkasan pembelian -->
@@ -100,31 +71,31 @@ $total_pembelian = count($data_pembelian);
     <div class="card shadow-lg" data-aos="fade-up" data-aos-delay="400">
       <div class="header text-white d-flex justify-content-between align-items-center">
         <h4 class="mb-0">Data Pembelian</h4>
-        <a href="../../public/php/pembelian.php" class="btn btn-light btn-custom shadow-sm">+ Tambah Pembelian</a>
+        <a href="../../daftar.php" class="btn btn-light btn-custom shadow-sm">+ Tambah Pembelian</a>
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered table-hover table-custom mb-0 align-middle">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Nama Obat</th>
-                <th>Jumlah</th>
-                <th>Tanggal</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
+          <table id="example" class="table table-bordered table-hover table-custom mb-0 align-middle">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Nama Obat</th>
+              <th>Jumlah</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
             <?php if ($total_pembelian > 0): ?>
               <?php $no = 1; ?>
               <?php foreach ($data_pembelian as $pembelian): ?>
                 <tr data-aos="fade-up" data-aos-delay="500">
                   <td><?= $no++; ?></td>
-                  <td><?= $pembelian['nama']; ?></td>
-                  <td><?= $pembelian['nama_obat']; ?></td>
-                  <td><?= $pembelian['jumlah']; ?></td>
-                  <td><?= $pembelian['tanggal']; ?></td>
+                  <td><?= htmlspecialchars($pembelian['nama']); ?></td>
+                  <td><?= htmlspecialchars($pembelian['nama_obat']); ?></td>
+                  <td><?= htmlspecialchars($pembelian['jumlah']); ?></td>
+                  <td><?= htmlspecialchars($pembelian['tanggal']); ?></td>
                   <td class="aksi-btns">
                     <!-- Tombol Ubah Data -->
                     <a href="ubah/ubah-pembeli.php?id=<?= $pembelian['id']; ?>"
@@ -145,12 +116,12 @@ $total_pembelian = count($data_pembelian);
                 <td colspan="6" class="text-center text-muted">Belum ada data pembelian.</td>
               </tr>
             <?php endif; ?>
-            </tbody>
-          </table>
-        </div>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+</div>
   <!-- Akhir Tabel Data Pembelian -->
 </main>
 <!-- Akhir Konten Utama -->

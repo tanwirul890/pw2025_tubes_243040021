@@ -5,23 +5,12 @@ include '../../config/function.php';
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $produk = select("SELECT * FROM products WHERE id = $id");
 
-
-
-
 $produk = $produk[0];
 
-
-if (isset($_POST['tambah'])) {
-    if (ubah_produk($_POST) > 0) {
-        echo "<script>alert('Data produk berhasil diubah.');location.href='../data-product.php';</script>";
-    } else {
-        echo "<script>alert('Data produk gagal diubah. Silakan coba lagi.');</script>";
-    }
-}
 ?>
 
 <?php include '../../../layout/header-admin.php'; ?>
-<link rel="stylesheet" href="../../css/ubah-produck.css">
+<link rel="stylesheet" href="../../css/ubah.css">
 
 <!-- Table tambah produk -->
 <main class="col-lg-10 ms-auto px-0">
@@ -32,7 +21,7 @@ if (isset($_POST['tambah'])) {
                     <div class="card-body p-4">
                         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Produk" class="login-illustration mb-3" data-aos="fade-down">
                         <h3 class="card-title mb-4 text-center" data-aos="fade-right">Formulir Produk</h3>
-                        <form action="" method="POST" autocomplete="off">
+                        <form action="" method="POST"   enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?= $produk['id'] ?>">
                             <div class="mb-3" data-aos="fade-left">
                                 <label for="nama_obat" class="form-label">Nama produk</label>
@@ -46,9 +35,17 @@ if (isset($_POST['tambah'])) {
                                 <label for="stok" class="form-label">Stok</label>
                                 <input type="number" class="form-control" id="stok" name="stok" required min="0" placeholder="Masukkan jumlah stok" value="<?= $produk['stock'] ?>">
                             </div>
+                             <div class="mb-3" data-aos="fade-left" data-aos-delay="300">
+                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required placeholder="Masukkan deskripsi produk"><?= $produk['deskripsi'] ?></textarea>
+                            </div>
+                             <div class="mb-3" data-aos="fade-left" data-aos-delay="400">
+                                <label for="foto_produk" class="form-label">Foto Produk</label>
+                                <input type="file" class="form-control" id="foto_produk" name="foto_produk"  accept="image/*" required onchange="previewImage(event)">
+                            </div>
                             <div class="mb-3">
                                 <div class="d-grid gap-2">
-                                    <button type="submit" class="btn btn-gradient btn-lg shadow" data-aos="zoom-in" data-aos-delay="300" name="tambah">Simpan</button>
+                                    <button type="submit" class="btn btn-gradient btn-lg shadow" data-aos="zoom-in" data-aos-delay="300" name="ganti">Simpan</button>
                                 </div>
                             </div>
                         </form>
