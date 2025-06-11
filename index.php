@@ -1,4 +1,6 @@
 <?php
+
+
  if (isset($_POST["login"])) {
      if ($_POST["username"] == "wirul" && $_POST["password"] == "unpas24") {
          header("Location: ../admin/php/data-pembelian.php ");
@@ -9,7 +11,7 @@
  }
 
  if (isset($_POST["login"])) {
-     if ($_POST["username"] == "root" && $_POST["password"] == ".") {
+     if ($_POST["username"] == "" && $_POST["password"] == ".") {
          header("Location: ../public/php/public.php ");
          exit;
      } else {

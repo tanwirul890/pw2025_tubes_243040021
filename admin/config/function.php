@@ -113,15 +113,15 @@ function ubah_produk($data) {
     $harga = $data['harga'];
     $stok = $data['stok'];
     $deskripsi = $data['deskripsi'];
-    $foto_lama = $data['foto_lama'];
+    $foto_Produk = uploade_file();
 
-    if ($_FILES['foto_produk']['error'] === 4) {
+    // if ($_FILES['foto_produk']['error'] === 4) {
 
-        $foto_Produk = $foto_lama;
-    } else {
+    //     $foto_Produk = $foto_lama;
+    // } else {
 
-        $foto_Produk = upload_file();
-    }
+    //     $foto_Produk = uploade_file();
+    // }
 
     $query = "UPDATE products SET nama_obat = '$nama_obat', harga = '$harga', stock = '$stok', deskripsi = '$deskripsi', foto_produk = '$foto_Produk' WHERE id = $id";
 
@@ -168,13 +168,54 @@ function upload_file() {
 
     return $namaFileBaru;
 }
+// fungsi untuk mengubah file
+function uploade_file() {
+    $namaFile = $_FILES['foto_produk']['name'];
+    $ukuranFile = $_FILES['foto_produk']['size'];
+    $error = $_FILES['foto_produk']['error'];
+    $tmpName = $_FILES['foto_produk']['tmp_name'];
+
+    // cek apakah ada gambar yang diupload
+    if ($error === 4) {
+        return 'default.jpg'; // jika tidak ada gambar, gunakan gambar default
+    }
+
+    // cek apakah yang diupload adalah gambar
+   $ekstensiGambarValid = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'];
+   $ekstensiGambar = pathinfo($namaFile, PATHINFO_EXTENSION);
+   $ekstensiGambar = strtolower($ekstensiGambar);
+
+
+    
+    if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+        echo "<script>alert('Yang anda upload bukan gambar!');</script>";
+        return false;
+    }
+
+    // cek jika ukuran file terlalu besar
+    if ($ukuranFile > 2000000) {
+        echo "<script>alert('Ukuran gambar terlalu besar!');</script>";
+        return false;
+    }
+
+    // generate nama file baru
+    $namaFileBaru = uniqid() . '.' . $ekstensiGambar;
+
+    // lolos pengecekan, gambar siap diupload
+    move_uploaded_file($tmpName, '../../img/' . $namaFileBaru);
+
+    return $namaFileBaru;
+}
 
 
 // hapus produk
 function hapus_produk($id) {
     global $db;
+    $foto_produk= select("SELECT foto_produk FROM products WHERE id = $id")[0];
+    unlink('../../img/' . $foto_produk['foto_produk']); // hapus file gambar dari server
     $query = "DELETE FROM products WHERE id = $id";
     mysqli_query($db, $query);
     
     return mysqli_affected_rows($db);
 }
+

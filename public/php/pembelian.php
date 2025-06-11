@@ -1,6 +1,8 @@
 <?php 
 
-include  '../../admin/config/function.php';
+
+ 
+
 
 if (isset($_POST['tambah'])) {
   if(create_barang($_POST) > 0) {

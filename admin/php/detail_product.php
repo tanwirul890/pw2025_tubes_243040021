@@ -101,7 +101,7 @@ $produk = $produk[0];
                     <p class="fw-semibold fs-5"><?= $produk['nama_obat']; ?></p>
 
                     <h5 class="mt-4 mb-2">Harga</h5>
-                    <p><span class="badge-price">Rp <?= number_format($produk['harga'], 0, ',', '.'); ?></span></p>
+                    <p><span class="badge-price">Rp <?= number_format($produk['harga'], 0, ',', '.') . '.000'; ?></span></p>
 
                     <h5 class="mt-4 mb-2">Stok</h5>
                     <p><span class="badge-stock"><?= $produk['stock']; ?> pcs</span></p>
@@ -111,7 +111,7 @@ $produk = $produk[0];
 
                     <!-- Tombol Aksi -->
                      <div class="text-center mt-4">
-                      <a href="dashboard-admin.php" class="btn btn-danger btn-lg rounded-pill shadow-sm">
+                      <a href="data-product.php" class="btn btn-danger btn-lg rounded-pill shadow-sm">
                           <i class="bi bi-arrow-left-circle"></i> Keluar
                        </a>
                       </div>
