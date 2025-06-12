@@ -16,6 +16,26 @@ if (isset($_POST['tambah'])) {
     echo "<script>alert('Data produk gagal ditambahkan.');</script>";
   }
 }
+
+//tambah pembeli
+if (isset($_POST['Hinzufügen'])) {
+  if(create_barang($_POST) > 0) {
+    echo "<script>alert('data barang berhasil di tambahkan.');</script>"; 
+  } else {
+    echo "<script>alert('data barang gagal di tambahkan.'); </script>";
+  }
+}
+
+// tambah akun
+
+if (isset($_POST['add'])) {
+  if (pendaftaran_akun($_POST) > 0) {
+    echo "<script>alert('Data pendaftaran akun berhasil ditambahkan.');</script>";
+  } else {
+    echo "<script>alert('Data pendaftaran akun gagal ditambahkan.');</script>";
+  }
+}
+
 // ubah pembelian
 if (isset($_POST['ubah'])) {
   if (ubah_barang($_POST) > 0) {
@@ -194,7 +214,7 @@ if (isset($_POST['edit'])) {
  
       <nav class="col-lg-2 sidebar d-lg-block" id="sidebar" data-aos="fade-right">
         <div class="d-flex align-items-center mb-4 px-3">
-          <img src="/css/IMG/logo.png" alt="HelathyNesia" width="38" height="32" class="me-2">
+          <img src="../../../css/IMG/logo.png" alt="HelathyNesia" width="38" height="32" class="me-2">
           <span class="logo-text">Helthy<span>Nesia</span></span>
         </div>
         <ul class="nav flex-column px-2">

@@ -1,33 +1,67 @@
 <?php
+session_start();
+include './admin/config/function.php';
 
+$error = ""; // Inisialisasi variabel error
 
- if (isset($_POST["login"])) {
-     if ($_POST["username"] == "wirul" && $_POST["password"] == "unpas24") {
-         header("Location: ../admin/php/data-pembelian.php ");
-         exit;
-     } else {
-         $error = true;
-     }
- }
+// Cek apakah tombol login ditekan
+if (isset($_POST['login'])) {
+    global $db;
 
- if (isset($_POST["login"])) {
-     if ($_POST["username"] == "" && $_POST["password"] == ".") {
-         header("Location: ../public/php/public.php ");
-         exit;
-     } else {
-         $error = true;
-     }
- }
- ?>
- <?php include './layout/header.php';?>
-<link rel="stylesheet" href="../css/login.css">
+    // Pastikan koneksi database tersedia
+    if (!$db) {
+        die("Koneksi database gagal: " . mysqli_connect_error());
+    }
 
-<!-- halaman login -->  
+    // Ambil input username dan password dengan sanitasi
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
+
+    // Cek username di database
+    $result = mysqli_query($db, "SELECT * FROM data_pendaftaran_akun WHERE username = '$username'");
+
+    if (!$result) {
+        die("Query gagal: " . mysqli_error($db));
+    }
+
+    // Jika username ditemukan
+    if (mysqli_num_rows($result) == 1) {
+        $data = mysqli_fetch_assoc($result);
+
+        // Verifikasi password
+        if (password_verify($password, $data['password'])) {
+            // Set session (tanpa menyimpan password)
+            $_SESSION['id'] = $data['id'];
+            $_SESSION['nama'] = $data['nama'];
+            $_SESSION['email'] = $data['email'];
+            $_SESSION['username'] = $data['username'];
+
+            // Redirect ke halaman utama
+            header("Location: ./public/php/menu.php");
+            exit(); // Menghentikan eksekusi kode setelah redirect
+        } else {
+            $error = "Password salah!";
+        }
+    } else {
+        $error = "Username tidak ditemukan!";
+    }
+}
+?>
+
+<?php include './layout/header.php'; ?>
+<link rel="stylesheet" href="./css/login.css">
+
+<!-- Halaman login -->
 <div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-in-out">
   <div class="card shadow-lg p-4" style="width: 100%; max-width: 410px; border-radius: 20px;" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
     <div class="card-body">
       <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Login" class="login-illustration mb-3" data-aos="flip-left" data-aos-delay="400" data-aos-duration="1200">
       <h4 class="card-title text-center mb-4" data-aos="fade-right" data-aos-delay="600" data-aos-duration="1000">Login</h4>
+      
+      <?php if (!empty($error)): ?>
+        <div class="alert alert-danger" data-aos="fade-left" data-aos-delay="800" data-aos-duration="900"><?php echo $error; ?></div>
+      <?php endif; ?>
+
       <form method="post" action="">
         <div class="mb-3" data-aos="fade-left" data-aos-delay="800" data-aos-duration="900">
           <label for="username" class="form-label">Username</label>
@@ -41,12 +75,10 @@
       </form>
     </div>
     <div class="card-footer-custom text-center" data-aos="fade-up" data-aos-delay="1400" data-aos-duration="900">
-      <small>Belum punya akun? <a href="/daftar.php">Daftar</a></small>
+      <small>Belum punya akun? <a href="daftar.php">Daftar</a></small>
     </div>
   </div>
 </div>
-<!-- akhir halaman login -->
+<!-- Akhir halaman login -->
 
-<!-- AOS JS & CSS -->
-
-<?php include './layout/footer.php';?>
+<?php include './layout/footer.php'; ?>

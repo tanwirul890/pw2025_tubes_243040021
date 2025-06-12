@@ -53,7 +53,12 @@ function pendaftaran_akun($data) {
     $email = $data['email'];
     $username = $data['username'];
     $password = $data['password'];
-    $query = "INSERT INTO data_pendaftaran_akun  VALUES (null, '$nama', '$email', '$username', '$password', current_timestamp())";
+
+//  enkripsi password
+ $password = password_hash($password, PASSWORD_DEFAULT);
+
+
+    $query = "INSERT INTO data_pendaftaran_akun  VALUES (null, '$nama', '$email', '$username', '$password',  current_timestamp())";
 
     mysqli_query($db, $query);
     
@@ -68,6 +73,9 @@ function ubah_akun($data) {
     $email = $data['email'];
     $username = $data['username'];
     $password = $data['password'];
+
+    //  enkripsi password
+ $password = password_hash($password, PASSWORD_DEFAULT);
 
     if ($password) {
         // Jika password diubah, update password

@@ -11,6 +11,9 @@ $pendaftar = $pendaftar[0];
 ?>
 
 <?php include '../../../layout/header-admin.php'; ?>
+<style>
+      
+</style>
 <link rel="stylesheet" href="../../css/ubah.css">
 <!-- Main Content -->
 <main class="col-lg-10 ms-auto px-0">

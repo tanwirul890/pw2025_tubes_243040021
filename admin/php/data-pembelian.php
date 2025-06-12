@@ -1,5 +1,6 @@
 <?php 
 include '../config/function.php'; 
+
 include '../../layout/header-admin.php';
 ?>
 <link rel="stylesheet" href="../css/data.css">
@@ -67,7 +68,7 @@ include '../../layout/header-admin.php';
   <!-- Akhir Ringkasan  Pembelian -->
 
   <!-- Tabel Data Pembelian Obat -->
- <div class="container mt-3">
+ <div class="container mt-3 mb-5">
     <div class="card shadow-lg" data-aos="fade-up" data-aos-delay="400">
         <div class="header text-white d-flex justify-content-between align-items-center">
             <h4 class="mb-0">Data Pembelian</h4>
@@ -94,10 +95,10 @@ include '../../layout/header-admin.php';
                             <?php foreach ($data_pembelian as $pembelian): ?>
                                 <tr data-aos="fade-up" data-aos-delay="500">
                                     <td><?= $no++; ?></td>
-                                    <td><?= htmlspecialchars($pembelian['nama']); ?></td>
-                                    <td><?= htmlspecialchars($pembelian['nama_obat']); ?></td>
-                                    <td><?= htmlspecialchars($pembelian['jumlah']); ?></td>
-                                    <td><?= htmlspecialchars($pembelian['tanggal']); ?></td>
+                                    <td><?= $pembelian['nama']; ?></td>
+                                    <td><?= $pembelian['nama_obat']; ?></td>
+                                    <td><?= $pembelian['jumlah']; ?></td>
+                                    <td><?= $pembelian['tanggal']; ?></td>
                                     <td class="aksi-btns">
                                         <!-- Tombol Ubah Data -->
                                         <a href="ubah/ubah-pembeli.php?id=<?= $pembelian['id']; ?>"
@@ -133,29 +134,30 @@ include '../../layout/header-admin.php';
                 <h5 class="modal-title" id="modalTambahLabel">Tambah Pembelian</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="tambah/tambah-pembelian.php" method="POST">
+            <form  method="POST">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama Pembeli</label>
                         <input type="text" class="form-control" id="nama" name="nama" required>
                     </div>
                     <div class="mb-3">
-                        <label for="jumlah" class="form-label">Jumlah</label>
-                        <input type="number" class="form-control" id="jumlah" name="jumlah" required>
+                        <label for="nama_obat" class="form-label">Nama Obat</label>
+                        <input type="text" class="form-control" id="nama_obat" name="nama_obat" required>
                     </div>
                     <div class="mb-3">
-                        <label for="harga" class="form-label">Harga</label>
-                        <input type="number" class="form-control" id="harga" name="harga" required>
+                        <label for="jumlah" class="form-label">Jumlah</label>
+                        <input type="number" class="form-control" id="jumlah" name="jumlah" required>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Tambah Pembelian</button>
+                    <button type="submit" class="btn btn-success" name="Hinzufügen">Tambah Pembelian</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
   <!-- Akhir Tabel Data Pembelian -->
 </main>
 <!-- Akhir Konten Utama -->

@@ -10,6 +10,9 @@ $produk = $produk[0];
 ?>
 
 <?php include '../../../layout/header-admin.php'; ?>
+<style>
+     
+</style>
 <link rel="stylesheet" href="../../css/ubah.css">
 
 <!-- Table tambah produk -->

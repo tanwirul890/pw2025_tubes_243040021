@@ -53,6 +53,14 @@
             background: #e3f2fd;
             padding: 10px;
         }
+
+
+        .nav{
+            display: none;
+        }
+
+        
+      
         @media (max-width: 998px) {
             .sidebar {
                 position: fixed;
@@ -74,3 +82,5 @@
                 font-size: 10px;
             }
         }
+      
+        

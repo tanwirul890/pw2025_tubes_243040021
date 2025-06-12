@@ -76,7 +76,9 @@ $produk = $produk[0];
     .btn-edit:hover, .btn-delete:hover {
         opacity: 0.9;
     }
-
+     .nav{
+        display: none;
+     }
     @media (max-width: 768px) {
         .product-img {
             max-height: 200px;

@@ -91,13 +91,13 @@ $menu = select("SELECT * FROM products");
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-lg-center">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="home.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="menu.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pemesanan</a>
+                    <a class="nav-link" href="pembelian.php">Pemesanan</a>
                 </li>
             </ul>
         </div>
