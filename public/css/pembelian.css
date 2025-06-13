@@ -53,4 +53,10 @@
     background: #e3f2fd;
     padding: 10px;
   }
+
+  .nav-link:hover, .nav-link.tiga{
+       background:rgb(140, 176, 230);
+      color: #fff;
+      font-weight: 500;
+    }
  

@@ -46,49 +46,59 @@ function hapus_barang($id) {
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
-// pendaftaran akun
+// tambah akun
 function pendaftaran_akun($data) {
     global $db;
-    $nama = $data['nama'];
-    $email = $data['email'];
-    $username = $data['username'];
-    $password = $data['password'];
 
-//  enkripsi password
- $password = password_hash($password, PASSWORD_DEFAULT);
+    $nama = htmlspecialchars($data['nama']);
+    $email = htmlspecialchars($data['email']);
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+    $role = htmlspecialchars($data['role']);
 
+    // Enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO data_pendaftaran_akun  VALUES (null, '$nama', '$email', '$username', '$password',  current_timestamp())";
+    // Query tanpa kolom created_at
+    $query = "INSERT INTO data_pendaftaran_akun (nama, email, username, password, role)
+              VALUES ('$nama', '$email', '$username', '$password', '$role')";
 
-    mysqli_query($db, $query);
-    
+    mysqli_query($db, $query) or die(mysqli_error($db));
+
     return mysqli_affected_rows($db);
 }
+
+
 
 // ubah akun
 function ubah_akun($data) {
     global $db;
-    $id = $data['id'];
-    $nama_lengkap = $data['nama_lengkap'];
-    $email = $data['email'];
-    $username = $data['username'];
-    $password = $data['password'];
 
-    //  enkripsi password
- $password = password_hash($password, PASSWORD_DEFAULT);
+    $id = (int)$data['id'];
+    $nama = htmlspecialchars($data['nama_lengkap']);
+    $email = htmlspecialchars($data['email']);
+    $username = htmlspecialchars($data['username']);
+    $password = $data['password']; // belum di-hash
+    $role = htmlspecialchars($data['role']); // jika kamu pakai role juga
 
-    if ($password) {
-        // Jika password diubah, update password
-        $query = "UPDATE data_pendaftaran_akun SET nama = '$nama_lengkap', email = '$email', username = '$username', password = '$password' WHERE id = $id";
+    if (!empty($password)) {
+        // Jika password tidak kosong, hash dan update
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $query = "UPDATE data_pendaftaran_akun 
+                  SET nama = '$nama', email = '$email', username = '$username', password = '$password', role = '$role' 
+                  WHERE id = $id";
     } else {
-        // Jika password tidak diubah, tetap gunakan password lama
-        $query = "UPDATE data_pendaftaran_akun SET nama = '$nama_lengkap', email = '$email', username = '$username' WHERE id = $id";
+        // Jika password kosong, jangan ubah password
+        $query = "UPDATE data_pendaftaran_akun 
+                  SET nama = '$nama', email = '$email', username = '$username', role = '$role' 
+                  WHERE id = $id";
     }
 
-    mysqli_query($db, $query);
-    
+    mysqli_query($db, $query) or die(mysqli_error($db));
+
     return mysqli_affected_rows($db);
 }
+
 
 // hapus akun
 function hapus_akun($id) {

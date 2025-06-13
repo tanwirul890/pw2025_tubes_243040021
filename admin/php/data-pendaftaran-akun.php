@@ -9,6 +9,13 @@ $total_pendaftaran = count($data_pendaftaran);
 ?>
 
 <link rel="stylesheet" href="../css/data.css">
+<style>
+  .nav-link.dua{
+        background: #0d6efd;
+      color: #fff;
+      font-weight: 500;
+  }
+</style>
 
 <main class="col-lg-10 ms-lg-auto px-lg-4" style="transition: margin-left 0.3s;">
   <div class="container mt-3 mb-5">
@@ -151,6 +158,13 @@ $total_pendaftaran = count($data_pendaftaran);
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" name="password" required>
             </div>
+            <div class="mb-3">
+  <label for="role" class="form-label">Role</label>
+  <select class="form-control" id="role" name="role" required>
+    <option value="admin">Admin</option>
+    <option value="user">User</option>
+  </select>
+</div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

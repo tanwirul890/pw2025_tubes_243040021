@@ -1,0 +1,118 @@
+
+
+   .carousel-caption {
+  max-width: 600px;
+  transition: all 0.5s ease;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  filter: brightness(85%);
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  background-color: #43a047;
+  border-radius: 50%;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #43a047, #81c784);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 28px;
+  font-weight: bold;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #388e3c, #66bb6a);
+}
+.produk-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.produk-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 128, 0, 0.15);
+}
+
+.produk-img {
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #43a047, #81c784);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #388e3c, #66bb6a);
+  color: #fff;
+}
+
+
+
+    .btn-gradient {
+      background: linear-gradient(90deg, #43a047, #81c784);
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 28px;
+      font-weight: bold;
+    }
+
+    .btn-gradient:hover {
+      background: linear-gradient(90deg, #388e3c, #66bb6a);
+    }
+
+    .section-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .badge-favorit {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: linear-gradient(90deg, #ffca28, #fff59d);
+      color: #4e342e;
+      font-weight: bold;
+      border-radius: 12px;
+      padding: 4px 14px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #66bb6a, #a5d6a7);
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .informasi-heading {
+      font-family: 'Pacifico', cursive;
+      color: #1b5e20;
+    }
+
+     .nav-link:hover, .nav-link.satu {
+       background:rgb(140, 176, 230);
+      color: #fff;
+      font-weight: 500;
+    }

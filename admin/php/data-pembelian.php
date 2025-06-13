@@ -3,6 +3,13 @@ include '../config/function.php';
 
 include '../../layout/header-admin.php';
 ?>
+<style>
+  .nav-link.tiga{
+        background: #0d6efd;
+      color: #fff;
+      font-weight: 500;
+  }
+</style>
 <link rel="stylesheet" href="../css/data.css">
 <!-- Konten Utama -->
 <main class="col-lg-10 ms-lg-auto px-lg-4" style="transition: margin-left 0.3s;">

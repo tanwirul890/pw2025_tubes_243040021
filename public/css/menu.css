@@ -1,0 +1,88 @@
+ .section-title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.5rem;
+      color: #1565c0;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .search-container {
+      max-width: 500px;
+      margin: 20px auto 40px;
+      position: relative;
+    }
+
+    .search-container input {
+      padding: 14px 20px;
+      width: 100%;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .produk-card {
+      border: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #ffffff;
+      position: relative;
+      max-width: 280px;
+      margin: auto;
+    }
+
+    .produk-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .produk-card img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .produk-card .card-body {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .produk-card .card-title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #1565c0;
+      margin-bottom: 0.5rem;
+    }
+
+    .produk-card .card-body p {
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    .produk-card .btn-pesan {
+      background-color: #43a047;
+      color: white;
+      padding: 6px 16px;
+      font-size: 0.875rem;
+      border: none;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .produk-card .btn-pesan:hover {
+      background-color: #388e3c;
+    }
+    .nav-link:hover, .nav-link.dua{
+       background:rgb(140, 176, 230);
+      color: #fff;
+      font-weight: 500;
+    }

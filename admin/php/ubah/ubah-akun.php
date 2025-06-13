@@ -42,6 +42,15 @@ $pendaftar = $pendaftar[0];
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password baru (kosongkan jika tidak diubah)">
                             </div>
+                            <div class="mb-3" data-aos="fade-left" data-aos-delay="200">
+    <label for="role" class="form-label">Role</label>
+    <select class="form-control" id="role" name="role" required>
+        <option value="">-- Pilih Role --</option>
+        <option value="admin" <?= $pendaftar['role'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+        <option value="user" <?= $pendaftar['role'] == 'user' ? 'selected' : '' ?>>User</option>
+    </select>
+</div>
+
                             <div class="mb-3">
                                 <div class="d-grid gap-2">
                                     <button type="submit" class="btn btn-gradient btn-lg shadow" name="edit" data-aos="zoom-in" data-aos-delay="500">Simpan</button>

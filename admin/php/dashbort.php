@@ -39,6 +39,20 @@ include '../../layout/header-admin.php';
     max-height: 300px;
     width: 100%;
   }
+
+  .nav-link.satu{
+        background: #0d6efd;
+      color: #fff;
+      font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+  .chart-container {
+    margin-bottom: 20px; 
+  }
+}
+
+
 </style>
 
 <main class="col-lg-10 ms-lg-auto px-lg-4">
@@ -83,17 +97,20 @@ include '../../layout/header-admin.php';
     </div>
 
     <!-- Grafik -->
-    <div class="row">
-      <div class="col-lg-6 chart-container" data-aos="fade-right" data-aos-delay="100">
-        <h5 class="text-center"><i class="fa-solid fa-chart-pie me-2"></i>Distribusi Data (Pie Chart)</h5>
-        <canvas id="pieChart"></canvas>
-      </div>
-      <div class="col-lg-6 chart-container" data-aos="fade-left" data-aos-delay="200">
-        <h5 class="text-center"><i class="fa-solid fa-chart-column me-2"></i>Distribusi Data (Bar Chart)</h5>
-        <canvas id="barChart"></canvas>
-      </div>
-    </div>
+     <div class="row d-flex">
+  <!-- Kolom Pie Chart -->
+  <div class="col-lg-6 chart-container" data-aos="fade-right" data-aos-delay="100">
+    <h5 class="text-center"><i class="fa-solid fa-chart-pie me-2"></i>Distribusi Data (Pie Chart)</h5>
+    <canvas id="pieChart"></canvas>
   </div>
+
+  <!-- Kolom Bar Chart -->
+  <div class="col-lg-6 chart-container" data-aos="fade-left" data-aos-delay="100">
+    <h5 class="text-center"><i class="fa-solid fa-chart-column me-2"></i>Distribusi Data (Bar Chart)</h5>
+    <canvas id="barChart"></canvas>
+  </div>
+</div>
+    </div>
 </main>
 
 <?php include '../../layout/footer-admin.php'; ?>

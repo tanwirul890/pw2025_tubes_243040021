@@ -3,6 +3,14 @@ include '../config/function.php';
 include '../../layout/header-admin.php';
 ?>
 <link rel="stylesheet" href="../css/data.css">
+<style>
+.nav-link.empat{
+        background: #0d6efd;
+      color: #fff;
+      font-weight: 500;
+  }
+</style>
+  
 
 <!-- Konten Utama -->
 <main class="col-lg-10 ms-lg-auto px-lg-4" style="transition: margin-left 0.3s;">

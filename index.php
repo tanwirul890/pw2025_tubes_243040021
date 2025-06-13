@@ -35,9 +35,15 @@ if (isset($_POST['login'])) {
             $_SESSION['nama'] = $data['nama'];
             $_SESSION['email'] = $data['email'];
             $_SESSION['username'] = $data['username'];
+            $_SESSION['role'] = $data['role'];
 
-            // Redirect ke halaman utama
-            header("Location: ./public/php/menu.php");
+            // Redirect sesuai role
+            if ($row["role"] === 'admin') {
+                header("Location: ./admin/php/dashbort.php");
+            } else {
+                header("Location: ./public/php/home.php");
+            }
+           
             exit(); // Menghentikan eksekusi kode setelah redirect
         } else {
             $error = "Password salah!";

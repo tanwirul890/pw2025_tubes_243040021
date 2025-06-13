@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Ambil data pembelian
 $data_pembelian = select("SELECT * FROM data_pembelian");
 $total_pembelian = count($data_pembelian);
@@ -220,25 +221,25 @@ if (isset($_POST['edit'])) {
         <ul class="nav flex-column px-2">
          
           <li class="nav-item">
-            <a class="nav-link" href="dashbort.php">
+            <a class="nav-link satu" href="dashbort.php">
               <i class="bi bi-speedometer2"></i> Dashboard
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="data-pendaftaran-akun.php">
+          <li class="nav-item ">
+            <a class="nav-link dua" href="data-pendaftaran-akun.php">
               <i class="bi bi-people"></i> Pelanggan
             </a>
           </li>
   
-          <li class="nav-item">
-            <a class="nav-link" href="data-pembelian.php">
+          <li class="nav-item ">
+            <a class="nav-link tiga" href="data-pembelian.php">
               <i class="bi bi-cart"></i> Pembelian
             </a>
           </li>
   
-          <li class="nav-item">
-            <a class="nav-link" href="data-product.php">
+          <li class="nav-item ">
+            <a class="nav-link empat" href="data-product.php">
               <i class="bi bi-box"></i> Produk
             </a>
           </li>
