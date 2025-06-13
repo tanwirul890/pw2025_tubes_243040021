@@ -1,165 +1,182 @@
-<?php include '../../layout/header-public.php'; ?>
-<link rel="stylesheet" href="../../css/menu.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"> <!-- AOS CSS -->
+<?php
+include '../../admin/config/function.php';
+$menu = select("SELECT * FROM products");
+?>
 
-<style>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Menu Produk - HealthyNesia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #f1f8e9);
+      color: #333;
+    }
 
-  .banner {
-    background-color:white;
-    padding: 60px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 16px 16px;
+    }
 
-  .banner h1 {
-    font-family: 'Pacifico', cursive;
-    color: #1565c0;
-    font-size: 3rem;
-  }
+    .navbar-brand span {
+      color: #1976d2;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
 
-  .banner p {
-    font-size: 1.2rem;
-    color: #444;
-  }
+    .section-title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.5rem;
+      color: #1565c0;
+      margin-bottom: 10px;
+    }
 
-  .search-container {
-    position: relative;
-    max-width: 400px;
-    margin: auto;
-    padding: 10px;
-    border-radius: 12px;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-  }
+    .section-subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
 
-  .search-input {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    font-size: 1rem;
-    border-radius: 8px;
-    outline: none;
-  }
+    .search-container {
+      max-width: 500px;
+      margin: 20px auto 40px;
+      position: relative;
+    }
 
-  .search-container i {
-    padding: 0 15px;
-    color: #1565c0;
-  }
+    .search-container input {
+      padding: 14px 20px;
+      width: 100%;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
 
-  .card {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border-radius: 12px;
-    overflow: hidden;
-    background: white;
-  }
+    .produk-card {
+      border: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #ffffff;
+      position: relative;
+      max-width: 280px;
+      margin: auto;
+    }
 
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  }
+    .produk-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
 
-  .card-img-top {
-    height: 230px;
-    object-fit: cover;
-  }
+    .produk-card img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
 
-  .btn-buy {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background: #1565c0;
-    color: white;
-    border-radius: 8px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s;
-  }
+    .produk-card .card-body {
+      padding: 1rem;
+      text-align: center;
+    }
 
-  .btn-buy:hover {
-    background: #004ba0;
-    transform: scale(1.07);
-  }
-</style>
+    .produk-card .card-title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #1565c0;
+      margin-bottom: 0.5rem;
+    }
 
-<!-- Banner -->
-<section class="container mb-5">
-  <div class="banner" data-aos="fade-up">
-    <h1>Healthy Nesia</h1>
-    <p>Temukan berbagai **obat dan produk kesehatan terbaik** untuk mendukung kesejahteraan Anda. 
-    Semua produk kami **terjamin aman, berkualitas, dan direkomendasikan oleh tenaga medis terpercaya**!</p>
+    .produk-card .card-body p {
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
+    .produk-card .btn-pesan {
+      background-color: #43a047;
+      color: white;
+      padding: 6px 16px;
+      font-size: 0.875rem;
+      border: none;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .produk-card .btn-pesan:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="../../css/IMG/logo.png" width="48" height="42" alt="logo">
+      <span class="ms-2">Healthy<span style="color:#43a047;">Nesia</span></span>
+    </a>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="menu.php" class="nav-link active">Produk</a></li>
+        <li class="nav-item"><a href="pembelian.php" class="nav-link">Pemesanan</a></li>
+      </ul>
+    </div>
   </div>
-</section>
+</nav>
 
-<!-- Search -->
+<!-- Header -->
 <div class="container mt-5">
+  <h2 class="section-title">Produk Unggulan</h2>
+  <p class="section-subtitle">Jelajahi produk kesehatan pilihan terbaik kami untuk Anda dan keluarga.</p>
+
+  <!-- Search -->
   <div class="search-container">
-    <i class="fa fa-search"></i>
-    <input type="text" id="searchBox" class="search-input" placeholder="Cari Obat...">
+    <input type="text" class="form-control" placeholder="Cari nama obat..." id="searchInput">
   </div>
 
-  <!-- Katalog Produk -->
-  <section class="mb-5 mt-5" id="daftar-menu">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-      <?php if (!empty($menu)): ?>
-        <?php foreach ($menu as $item): ?>
-          <div class="col" data-aos="fade-up" data-aos-duration="800">
-            <div class="card h-100 shadow-sm border-0">
-              <img src="<?= htmlspecialchars('../../admin/img/' . $item['foto_produk'], ENT_QUOTES, 'UTF-8') ?>" 
-                   class="card-img-top" 
-                   alt="<?= htmlspecialchars($item['nama_obat'], ENT_QUOTES, 'UTF-8') ?>" 
-                   loading="lazy" data-aos="zoom-in" data-aos-duration="1000"/>
-              <div class="card-body d-flex flex-column text-center">
-                <h5 class="card-title">
-                  <i class="fa-solid fa-pills me-2"></i> <?= htmlspecialchars($item['nama_obat'], ENT_QUOTES, 'UTF-8') ?>
-                </h5>
-                <p class="card-text price">
-                  <i class="fa fa-tag me-2"></i> Rp<?= number_format($item['harga'], 0, ',', '.') ?>
-                </p>
-                <p class="card-text">
-                  <i class="fa fa-info-circle me-2"></i> <?= htmlspecialchars($item['deskripsi'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-                <p class="card-text">
-                  <i class="fa fa-box me-2"></i> Stok: <?= htmlspecialchars($item['stock'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-              </div>
-              <div class="card-footer bg-transparent border-top-0 text-center">
-                <a href="#" class="btn-buy" data-aos="fade-up" data-aos-delay="300">
-                  <i class="fa fa-shopping-cart me-2"></i> Beli Sekarang
-                </a>
-              </div>
+  <!-- Produk -->
+  <div class="row row-cols-2 row-cols-md-3 g-4 mt-4 mb-5" id="produkList">
+    <?php if (!empty($menu)) : ?>
+      <?php foreach ($menu as $item): ?>
+        <div class="col produk-item">
+          <div class="card border-0 shadow position-relative produk-card">
+            <img src="<?= '../../admin/img/' . htmlspecialchars($item['foto_produk']) ?>" class="card-img-top" alt="<?= htmlspecialchars($item['nama_obat']) ?>">
+            <div class="card-body text-center">
+              <h5 class="card-title"><?= htmlspecialchars($item['nama_obat']) ?></h5>
+              <p><?= htmlspecialchars($item['deskripsi']) ?></p>
+              <p class="text-primary fw-bold">Rp<?= number_format($item['harga'], 0, ',', '.') ?></p>
+              <p class="text-muted small">Stok: <?= htmlspecialchars($item['stock']) ?></p>
+              <a href="pembelian.php?id=<?= $item['id'] ?>" class="btn btn-pesan">Pesan</a>
             </div>
           </div>
-        <?php endforeach; ?>
-      <?php else: ?>
-        <p class="text-center text-muted" data-aos="fade-up">Produk tidak tersedia.</p>
-      <?php endif; ?>
-    </div>
-  </section>
+        </div>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p class="text-center text-muted">Tidak ada produk tersedia saat ini.</p>
+    <?php endif; ?>
+  </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000,
-    easing: 'ease-in-out',
-    once: true,
-    delay: 200
-  });
+  document.getElementById("searchInput").addEventListener("input", function () {
+    const term = this.value.toLowerCase();
+    const items = document.querySelectorAll(".produk-item");
 
-   document.getElementById("searchBox").addEventListener("input", function() {
-    let searchTerm = this.value.toLowerCase();
-    let cards = document.querySelectorAll(".col");
-
-    cards.forEach(card => {
-      let namaObat = card.querySelector(".card-title").innerText.toLowerCase();
-      card.style.display = namaObat.includes(searchTerm) ? "block" : "none";
+    items.forEach(item => {
+      const title = item.querySelector(".card-title").innerText.toLowerCase();
+      item.style.display = title.includes(term) ? "block" : "none";
     });
   });
-
 </script>
 
 <?php include '../../layout/footer.php'; ?>

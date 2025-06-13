@@ -220,7 +220,7 @@ if (isset($_POST['edit'])) {
         <ul class="nav flex-column px-2">
          
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="dashbort.php">
               <i class="bi bi-speedometer2"></i> Dashboard
             </a>
           </li>

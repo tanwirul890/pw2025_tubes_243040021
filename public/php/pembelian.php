@@ -1,9 +1,4 @@
 <?php 
-
-
- 
-
-
 if (isset($_POST['tambah'])) {
   if(create_barang($_POST) > 0) {
     echo "<script>alert('data barang berhasil di tambahkan.'); window.location.href = 'pembelian.php';</script>"; 
@@ -26,6 +21,7 @@ if (isset($_POST['tambah'])) {
           <h3 class="card-title mb-4 text-center" data-aos="fade-right">Formulir Pembelian Obat</h3>
           <form action="" method="POST" autocomplete="off">
             <div class="mb-3" data-aos="fade-left">
+              <input type="hidden" name="id" value="<?= $produk['id'] ?>">
               <label for="nama" class="form-label">Nama</label>
               <input type="text" class="form-control" id="nama" name="nama" required placeholder="Masukkan nama">
             </div>

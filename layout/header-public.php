@@ -1,6 +1,14 @@
 <?php
 include '../../admin/config/function.php';
-$menu = select("SELECT * FROM products"); 
+// Ambil data pembelian
+$data_pembelian = select("SELECT * FROM data_pembelian");
+$total_pembelian = count($data_pembelian);
+// Ambil data pendaftaran akun
+$data_pendaftaran = select("SELECT * FROM data_pendaftaran_akun");
+$total_pendaftaran = count($data_pendaftaran);
+// Ambil data produk
+$data_produk = select("SELECT * FROM products");
+$total_produk = count($data_produk);
 ?>
 
 <!doctype html>
