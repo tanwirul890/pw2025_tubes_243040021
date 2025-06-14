@@ -14,26 +14,25 @@
 
        
   <!-- Produk -->
-  <div class="row row-cols-2 row-cols-md-3 g-4 mt-4 mb-5" id="produkList">
-    <?php if (!empty($menu)) : ?>
-      <?php foreach ($menu as $item): ?>
-        <div class="col produk-item">
-          <div class="card border-0 shadow position-relative produk-card">
-            <img src="<?= '../../admin/img/' . htmlspecialchars($item['foto_produk']) ?>" class="card-img-top" alt="<?= htmlspecialchars($item['nama_obat']) ?>">
-            <div class="card-body text-center">
-              <h5 class="card-title"><?= htmlspecialchars($item['nama_obat']) ?></h5>
-              <p><?= htmlspecialchars($item['deskripsi']) ?></p>
-              <p class="text-primary fw-bold">Rp<?= number_format($item['harga'], 0, ',', '.'),'.000' ?></p>
-              <p class="text-muted small">Stok: <?= htmlspecialchars($item['stock']) ?></p>
-              <a href="pembelian.php?id=<?= $item['id'] ?>" class="btn btn-pesan">Pesan</a>
-            </div>
+<div class="row row-cols-2 row-cols-md-3 g-4 mt-4 mb-5" id="produkList">
+  <?php if (!empty($menu)) : ?>
+    <?php foreach ($menu as $item): ?>
+      <div class="col produk-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="card border-0 shadow position-relative produk-card" data-aos="zoom-in" data-aos-delay="300">
+          <img src="<?= '../../admin/img/' . htmlspecialchars($item['foto_produk']) ?>" class="card-img-top" alt="<?= htmlspecialchars($item['nama_obat']) ?>">
+          <div class="card-body text-center">
+            <h5 class="card-title" data-aos="fade-down"><?= htmlspecialchars($item['nama_obat']) ?></h5>
+            <p data-aos="fade-up" data-aos-delay="400"><?= htmlspecialchars($item['deskripsi']) ?></p>
+            <p class="text-primary fw-bold" data-aos="flip-up" data-aos-delay="500">Rp<?= number_format($item['harga'], 0, ',', '.'),'.000' ?></p>
+            <p class="text-muted small" data-aos="fade-in" data-aos-delay="600">Stok: <?= htmlspecialchars($item['stock']) ?></p>
+            <a href="pembelian.php?id=<?= $item['id'] ?>" class="btn btn-pesan" data-aos="flip-up" data-aos-delay="700">Pesan</a>
           </div>
         </div>
-      <?php endforeach; ?>
-    <?php else: ?>
-      <p class="text-center text-muted">Tidak ada produk tersedia saat ini.</p>
-    <?php endif; ?>
-  </div>
+      </div>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <p class="text-center text-muted" data-aos="fade-in" data-aos-delay="800">Tidak ada produk tersedia saat ini.</p>
+  <?php endif; ?>
 </div>
 
 <script>

@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 // Ambil data pembelian
 $data_pembelian = select("SELECT * FROM data_pembelian");
 $total_pembelian = count($data_pembelian);
@@ -243,6 +245,11 @@ if (isset($_POST['edit'])) {
               <i class="bi bi-box"></i> Produk
             </a>
           </li>
+          <li class="nav-item">
+  <a class="nav-link logout" href=" ../../index.php">
+    <i class="bi bi-box-arrow-right"></i> Logout
+  </a>
+</li>
         </ul>
       </nav>
       <div class="sidebar-overlay" id="sidebarOverlay"></div>

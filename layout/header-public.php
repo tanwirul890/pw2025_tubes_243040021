@@ -13,6 +13,7 @@ $menu = select("SELECT * FROM products");
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <style>
     body {
       background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 50%, #c8e6c9 100%);
@@ -48,7 +49,8 @@ $menu = select("SELECT * FROM products");
 
     .nav-link {
      color: #adb5bd;
-      margin-bottom: 6px;
+  
+      margin:6px;
       font-size: 1.07rem;
       border-radius: 8px;
       transition: background 0.2s, color 0.2s;
@@ -75,11 +77,30 @@ $menu = select("SELECT * FROM products");
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link satu" href="home.php">Home</a></li>
-        <li class="nav-item"><a class="nav-link dua" href="menu.php">Menu</a></li>
-        <li class="nav-item"><a class="nav-link tiga" href="pembelian.php">Pemesanan</a></li>
-      </ul>
+     <ul class="navbar-nav ms-auto">
+  <li class="nav-item">
+    <a class="nav-link satu" href="home.php">
+      <i class="bi bi-house-door-fill me-2"></i> Home
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link dua" href="menu.php">
+      <i class="bi bi-list-ul me-2"></i> produk
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link tiga" href="pembelian.php">
+      <i class="bi bi-cart-fill me-2"></i> Pemesanan
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.php">
+      <i class="bi bi-box-arrow-right me-2"></i> Logout
+    </a>
+  </li>
+</ul>
+
+    
     </div>
   </div>
 </nav>
