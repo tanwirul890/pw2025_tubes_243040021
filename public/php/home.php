@@ -12,11 +12,11 @@
   </div>
   <div class="carousel-inner rounded-4 overflow-hidden shadow-lg">
     <div class="carousel-item active">
-      <img src="../img/s1.jpeg" class="d-block w-100 object-fit-cover" style="height: 600px;" alt="Slide 1">
+      <img src="../img/s3.jpeg" class="d-block w-100 object-fit-cover" style="height: 600px;" alt="Slide 1">
       <div class="carousel-caption d-flex flex-column justify-content-center align-items-start h-100 text-start px-5" >
         <h1 class="fw-bold text-primary display-4 mb-3">Apotek Digital Terpercaya</h1>
         <p class="lead text-dark">Pesan obat & vitamin dari rumah dengan mudah dan aman</p>
-        <a href="#produk" class="btn btn-gradient mt-3">Lihat Produk</a>
+        <a href="menu.php" class="btn btn-gradient mt-3">Lihat Produk</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -24,7 +24,7 @@
       <div class="carousel-caption d-flex flex-column justify-content-center align-items-start h-100 text-start px-5" style="background:  border-radius: 1rem;">
         <h1 class="fw-bold text-white display-4 mb-3">Cepat & Praktis</h1>
         <p class="lead text-light">Pengiriman cepat langsung ke rumah Anda</p>
-        <a href="pembelian.php" class="btn btn-light mt-3">Pesan Sekarang</a>
+        <a href="menu.php" class="btn btn-light mt-3">Pesan Sekarang</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -32,7 +32,7 @@
       <div class="carousel-caption d-flex flex-column justify-content-center align-items-start h-100 text-start px-5" style=" border-radius: 1rem;">
         <h1 class="fw-bold text-success display-4 mb-3">Sehat Tanpa Ribet</h1>
         <p class="lead text-dark">Cukup klik, produk kesehatan Anda langsung dikirim!</p>
-        <a href="#produk" class="btn btn-gradient mt-3">Mulai Belanja</a>
+        <a href="menu.php" class="btn btn-gradient mt-3">Mulai Belanja</a>
       </div>
     </div>
   </div>

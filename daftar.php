@@ -14,7 +14,7 @@ if (isset($_POST['tambah'])) {
 <?php include './layout/header.php';?>
 <link rel="stylesheet" href="css/daftar.css">
 <!-- card pendaftaran -->
-<div class="container" data-aos="fade-up" data-aos-duration="1000">
+<div class="container mb-5" data-aos="fade-up" data-aos-duration="1000">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-sm" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="800">
@@ -41,6 +41,14 @@ if (isset($_POST['tambah'])) {
                             <label for="konfirmasi_password" class="form-label">Konfirmasi Password</label>
                             <input type="password" class="form-control" id="konfirmasi_password" name="konfirmasi_password" required>
                         </div>
+                        <div class="mb-3" data-aos="fade-right" data-aos-delay="1000">
+    <label for="role" class="form-label">Role</label>
+    <select class="form-control" id="role" name="role" readonly disabled>
+        <option value="user" selected>User</option>
+    </select>
+    <input type="hidden" name="role" value="user"> <!-- Agar tetap dikirim ke server -->
+</div>
+
                         <button type="submit" name="tambah" class="btn btn-primary w-100" data-aos="flip-up" data-aos-delay="1100">Daftar</button>
                     </form>
                     <div class="mt-3 text-center" data-aos="fade-up" data-aos-delay="1200">

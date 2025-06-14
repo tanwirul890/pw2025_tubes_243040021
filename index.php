@@ -15,9 +15,9 @@ if (isset($_POST['login'])) {
 
     // Ambil input username dan password dengan sanitasi
     $username = mysqli_real_escape_string($db, $_POST['username']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
+    $password = $_POST['password']; // Tidak perlu escape password, karena tidak digunakan langsung di query
 
-    // Cek username di database
+    // Query untuk mencari username
     $result = mysqli_query($db, "SELECT * FROM data_pendaftaran_akun WHERE username = '$username'");
 
     if (!$result) {
@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
     }
 
     // Jika username ditemukan
-    if (mysqli_num_rows($result) == 1) {
+    if (mysqli_num_rows($result) === 1) {
         $data = mysqli_fetch_assoc($result);
 
         // Verifikasi password
@@ -37,13 +37,13 @@ if (isset($_POST['login'])) {
             $_SESSION['username'] = $data['username'];
             $_SESSION['role'] = $data['role'];
 
-            // Redirect sesuai role
-            if ($row["role"] === 'admin') {
+            // Redirect berdasarkan role
+            if ($data['role'] === 'admin') {
                 header("Location: ./admin/php/dashbort.php");
             } else {
                 header("Location: ./public/php/home.php");
             }
-           
+
             exit(); // Menghentikan eksekusi kode setelah redirect
         } else {
             $error = "Password salah!";
@@ -53,6 +53,7 @@ if (isset($_POST['login'])) {
     }
 }
 ?>
+
 
 <?php include './layout/header.php'; ?>
 <link rel="stylesheet" href="./css/login.css">
